@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Har Ghar Tiranga
+        </title>
+
+        <style>
+            
+  
+  body {
+    font-family: system-ui;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.5em;
+ 
+  
+   
+
+  }
+  
+  h4 {
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+  h1 {
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 2em;
+  }
+  
+  .img {
+    border-radius: 150%;
+    height: 120px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main * {
+    margin-bottom: 12px;
+  }
+  
+  input {
+    text-align: center;
+    font-size: large;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    text-transform: capitalize;
+  }
+  
+  button {
+    background: #8bc34a;
+    color: #fff;
+    border: none;
+    font-size: 0.8em;
+    padding: 5px 15px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  a {
+    color: #6492f6;
+  }
+  p{
+    margin-top: -40px;
+  }
+  
+  #ab{
+
+    border: 2px solid black;
+    width: 500px;
+    padding: 20px 50px;
+    background-color: #212121;
+    color: white;
+   
+  
+   
+  }
+
+     </style>
+
+     
+    
+    </head>
+
+
+<body>
+   <div id="ab">
+    <header>
+        <img class="img" src="./HARGHAR.jpeg" alt="HAR GHAR TIRANGA Logo">
+        <h4>Get your certificate of subscription to</h4>
+        <h1><span style="color:green ;">HAR</span> GHAR <span style="color: orangered;">TIRANGA</span> </h1> <P>13 <SUP>th</SUP> - 15 <SUP>th</SUP> August 2022 </P>
+    </header>
+    <main>
+
+        <label for="name">Type Your Name</label>
+        <input required type="text" name="Name" autocomplete="name" placeholder="Enter Your Name" id="name" minlength="3"
+            maxlength="16">
+        
+        <a href="#" id="download-btn">Get Certificate</a>
+
+
+    </main>
+   
+   </div>
+   
+
+     
+   <canvas id="canvas" height="350px" width="500px"></canvas>
+    
+ 
+
+   
+
+</body>
+
+<script>
+    const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d')
+const nameInput = document.getElementById('name')
+const downloadBtn = document.getElementById('download-btn')
+
+const image = new Image()
+image.src = 'certificate.jpg'
+image.onload = function () {
+drawImage()
+}
+
+function drawImage() {
+// ctx.clearRect(0, 0, canvas.width, canvas.height)
+ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+ctx.font = '40px monotype corsiva'
+ctx.fillStyle = '#29e'
+ctx.fillText(nameInput.value, 150, 180)
+}
+
+nameInput.addEventListener('input', function () {
+drawImage()
+})
+
+downloadBtn.addEventListener('click', function () {
+downloadBtn.href = canvas.toDataURL('image/jpg')
+downloadBtn.download = 'Certificate - ' + nameInput.value
+})
+ </script>
+
+
+
+
+</html>
